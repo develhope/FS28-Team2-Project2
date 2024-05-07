@@ -20,3 +20,24 @@ async function addTask(task, resultHandler) {
     }
   }, 2000);
 }
+
+// Function to Complete a Task:
+// Define a function named completeTask that takes two parameters:
+
+async function completeTask(index, callback) {
+  // Inside the completeTask function, use setTimeout to simulate an asynchronous operation.
+  setTimeout(() => {
+    if (index < 0 || index >= tasks.length) {
+      // If the index parameter is out of range (less than 0 or greater than or equal to the length of the tasks array),
+      // invoke the callback function with an Error object containing the message "Invalid task index".
+      const error = new Error('Invalid task index.');
+      callback(error);
+    } else {
+      // Otherwise, remove the task at the specified index from the tasks array and invoke the callback function with null
+      // as the first parameter and the message "Task completed successfully" as the second parameter.
+      const completedTask = tasks[index];
+      tasks.splice(index, 1);
+      callback(null, `Task: ${completedTask} completed successfully.`);
+    }
+  }, 2000);
+}
