@@ -51,3 +51,5 @@ function listTasks() {
       console.log(`task ${index + 1}: ${task}`)
     })
 }
+
+listTasks()
